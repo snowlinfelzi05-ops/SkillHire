@@ -1,15 +1,13 @@
 const VITE_API_URL = import.meta.env?.VITE_API_URL;
 
-if (!VITE_API_URL && (import.meta.env?.PROD || false)) {
-  console.warn(
-    "[SkillHire] VITE_API_URL is not set. Set it in a .env file and rebuild, " +
-      "otherwise the app will point at the local dev API (http://127.0.0.1:8000/api):"
-  );
-}
+const API_URL = (
+  VITE_API_URL ||
+  "https://skillhire-production.up.railway.app/api"
+).replace(/\/+$/, "");
 
-const API_URL = (VITE_API_URL || "http://127.0.0.1:8000/api").replace(/\/+$/, "");
-
-const APP_BASE_URL = API_URL.slice(0, API_URL.lastIndexOf("/api")) || "http://127.0.0.1:8000";
+const APP_BASE_URL =
+  API_URL.slice(0, API_URL.lastIndexOf("/api")) ||
+  "https://skillhire-production.up.railway.app";
 
 /**
  * Resolve a backend-relative resource URL (e.g. an uploaded image path)

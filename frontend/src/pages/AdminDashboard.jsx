@@ -89,7 +89,9 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
-  const API = "http://127.0.0.1:8000/api";
+  const API =
+    import.meta.env.VITE_API_URL ||
+    "https://skillhire-production.up.railway.app/api";
 
   const [stats, setStats] = useState(null);
   const [users, setUsers] = useState([]);
