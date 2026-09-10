@@ -89,7 +89,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
 const AdminDashboard = () => {
   const navigate = useNavigate();
 
-  const API =
+  const API_BASE =
     import.meta.env.VITE_API_URL ||
     "https://skillhire-production.up.railway.app/api";
 
@@ -173,16 +173,16 @@ const AdminDashboard = () => {
         jobsRes,
         projectsRes,
       ] = await Promise.all([
-        fetch(`${API}/admin/stats${cacheBust}`, {
+        fetch(`${API_BASE}/admin/stats${cacheBust}`, {
           headers,
         }),
-        fetch(`${API}/admin/users${cacheBust}`, {
+        fetch(`${API_BASE}/admin/users${cacheBust}`, {
           headers,
         }),
-        fetch(`${API}/admin/jobs${cacheBust}`, {
+        fetch(`${API_BASE}/admin/jobs${cacheBust}`, {
           headers,
         }),
-        fetch(`${API}/admin/projects${cacheBust}`, {
+        fetch(`${API_BASE}/admin/projects${cacheBust}`, {
           headers,
         }),
       ]);
@@ -301,7 +301,7 @@ const AdminDashboard = () => {
       setDeletingJobId(jobId);
 
       const response = await fetch(
-        `${API}/admin/jobs/${jobId}`,
+        `${API_BASE}/admin/jobs/${jobId}`,
         {
           method: "DELETE",
           headers: {
@@ -358,7 +358,7 @@ const AdminDashboard = () => {
       setDeletingUserId(userId);
 
       const response = await fetch(
-        `${API}/admin/users/${userId}`,
+        `${API_BASE}/admin/users/${userId}`,
         {
           method: "DELETE",
           headers: {
