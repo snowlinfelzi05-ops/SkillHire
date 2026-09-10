@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'snowlin',
             'email' => 'snowlin@test.com',
             'password' => Hash::make('123456'),
-            'role' => 'client',
+            'role' => 'admin',
         ]);
 
         $freelancers = [
