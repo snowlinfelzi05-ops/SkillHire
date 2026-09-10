@@ -1,0 +1,8 @@
+$schema = "https://nixpacks.com/schemas/nixpacks.toml"
+
+[providers]
+php = {}
+node = {}
+
+[variables]
+NODE_VERSION = "20"

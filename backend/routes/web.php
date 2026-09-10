@@ -9,3 +9,7 @@ Route::get('/', function () {
 Route::get('/up', function () {
     return response()->json(['status' => 'ok']);
 });
+
+Route::get('/api/health', function () {
+    return response()->json(['status' => 'ok']);
+});
